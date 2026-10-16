@@ -5,6 +5,7 @@ import 'package:usuarios/usuarios.dart';
 import 'package:chamados/chamados.dart';
 import 'package:aulas/aulas.dart';
 import 'package:refeitorio/refeitorio.dart';
+import 'package:almoxarifado/almoxarifado.dart';
 import 'package:servicos_terceirizados/servicos_terceirizados.dart';
 
 const String version = '0.0.1';
@@ -31,6 +32,7 @@ void main(List<String> arguments) {
   opcoes += ChamadoController.menu;
   opcoes += Eventos.menu;
   opcoes += Refeitorio.menu;
+  opcoes += Almoxarifado.menu;
   opcoes += ServicosTerceirizadosController.menu;
   // TODO: Adicionar opções do seu pacote aqui
 

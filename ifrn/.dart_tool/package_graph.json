@@ -7,6 +7,7 @@
       "name": "ifrn",
       "version": "0.0.1",
       "dependencies": [
+        "almoxarifado",
         "args",
         "aulas",
         "chamados",
@@ -55,6 +56,11 @@
     {
       "name": "lints",
       "version": "6.1.0",
+      "dependencies": []
+    },
+    {
+      "name": "almoxarifado",
+      "version": "1.0.0",
       "dependencies": []
     },
     {

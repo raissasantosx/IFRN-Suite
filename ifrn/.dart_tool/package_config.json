@@ -8,6 +8,12 @@
       "languageVersion": "3.11"
     },
     {
+      "name": "almoxarifado",
+      "rootUri": "../almoxarifado",
+      "packageUri": "lib/",
+      "languageVersion": "3.12"
+    },
+    {
       "name": "analyzer",
       "rootUri": "file:///home/raissa/.pub-cache/hosted/pub.dev/analyzer-14.4.0",
       "packageUri": "lib/",
