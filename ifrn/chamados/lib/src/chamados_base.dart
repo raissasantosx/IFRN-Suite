@@ -5,7 +5,6 @@ import 'package:usuarios/usuarios.dart';
 class UsuarioChamado extends Usuario {
   final int matricula;
   final String campus;
-  List<Chamado>? chamados;
 
   UsuarioChamado({
     required super.id,
@@ -15,17 +14,13 @@ class UsuarioChamado extends Usuario {
     required this.matricula,
     required super.senha,
     required this.campus,
-    // required this.chamados,
     List<String>? permissoes
-  }) {
-    chamados = [];
-  }
+  });
 }
 
 class Chamado {
   final int id;
   String descricao;
-  final UsuarioChamado usuario;
   final String campus;
   List<String> interessados;
   final String status;
@@ -35,7 +30,6 @@ class Chamado {
   Chamado({
     required this.id,
     required this.descricao,
-    required this.usuario,
     required this.campus,
     required this.interessados,
     this.status = 'Pendente'
@@ -52,7 +46,7 @@ class ChamadoController {
     { 'titulo': 'Chamados - Editar chamado', 'permissao': null, 'metodo': editar },
   ];
 
-  static void listar(UsuarioChamado usuario) {
+  static void listar() {
     if (Chamado.instancias.isEmpty) {
       print('Você não possui chamados registrados.');
     } else {
@@ -65,7 +59,6 @@ class ChamadoController {
         print('''
         -------------------
         ${chamado.descricao} (${chamado.status})
-        Usuário: ${chamado.usuario}
         Campus: ${chamado.campus}
         Interessados: $textoInteressados
         -------------------
@@ -74,7 +67,7 @@ class ChamadoController {
     }
   }
 
-  static void cadastrar(UsuarioChamado usuario) {
+  static void cadastrar() {
     print('Insira um campus para o chamado:');
     String? campus = stdin.readLineSync();
     if (campus == null) {
@@ -95,13 +88,12 @@ class ChamadoController {
     Chamado(
       id: Chamado.instancias.length + 1,
       descricao: descricao,
-      usuario: usuario,
       campus: campus,
       interessados: interessados
     );
   }
 
-  static void excluir(UsuarioChamado usuario) {
+  static void excluir() {
     print('Insira o id do chamado que deseja fechar:');
     int? id = int.tryParse(stdin.readLineSync() ?? '');
     if (id == null) {
@@ -110,10 +102,6 @@ class ChamadoController {
     }
     for (final chamado in Chamado.instancias) {
       if (chamado.id == id) {
-        if (chamado.usuario != usuario) {
-          print('Você não tem permissão para fechar este chamado.');
-          return;
-        }
         Chamado.instancias.remove(chamado);
         print('Chamado fechado com sucesso.');
         return;
@@ -123,7 +111,7 @@ class ChamadoController {
     return;
   }
 
-  static void editar(UsuarioChamado usuario) {
+  static void editar() {
     print('Insira o id do chamado que deseja editar:');
     int? id = int.tryParse(stdin.readLineSync() ?? '');
     if (id == null) {
@@ -132,10 +120,6 @@ class ChamadoController {
     }
     for (final chamado in Chamado.instancias) {
       if (chamado.id == id) {
-        if (chamado.usuario != usuario) {
-          print('Você não tem permissão para editar este chamado.');
-          return;
-        }
         print('Deseja alterar a descrição (s/n)?');
         String? opcao = stdin.readLineSync();
         if (opcao == 's') {
