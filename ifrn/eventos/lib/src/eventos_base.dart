@@ -151,8 +151,8 @@ class Eventos {
     print('Digite o local do evento: ');
     String? local = stdin.readLineSync();
     double? verbaDestinada = pedirInput('Digite a verba destinada: ', double.tryParse);
-    DateTime? cronogramaDataInicio = pedirInput('Digite a data e hora de ínicio do evento (): ', DateTime.tryParse);
-    DateTime? cronogramaDataFim = pedirInput('Digite a data e hora de fim do evento: ', DateTime.tryParse);
+    DateTime? cronogramaDataInicio = pedirInput('Digite a data e hora de ínicio do evento (aaaa-mm-dd hh:mm:ss): ', DateTime.tryParse);
+    DateTime? cronogramaDataFim = pedirInput('Digite a data e hora de fim do evento (aaaa-mm-dd hh:mm:ss): ', DateTime.tryParse);
 
     if (nome != null && nome.isNotEmpty && tema != null && tema.isNotEmpty && local != null && local.isNotEmpty && verbaDestinada != null && cronogramaDataInicio != null && cronogramaDataFim != null) {
       var cronograma = Cronograma(cronogramaDataInicio, cronogramaDataFim);
@@ -314,7 +314,7 @@ static void editar() {
         var e = eventos[i];
         print('[$i] ${e.nome}'); }
       
-      print('Digite a informação que deseja excluir:');
+      print('Digite o evento que deseja excluir:');
       String? input = stdin.readLineSync() ?? '';
       int? index = int.tryParse(input);
       if (index != null && index >= 0 && index < eventos.length) {
