@@ -1,0 +1,11 @@
+name: refeitorio
+description: Módulo de refeitório do IFRN Modular Suite (Grupo 8) - cardápio e solicitações de refeição.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.12.2
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.6

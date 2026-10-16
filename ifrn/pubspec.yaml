@@ -1,0 +1,36 @@
+name: ifrn
+publish_to: none
+description: A sample command-line application with basic argument parsing.
+version: 0.0.1
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.12.2
+
+# Add regular dependencies here.
+dependencies:
+  args: ^2.7.0
+  exemplo:
+    path:  exemplo
+  
+  eventos:
+    path:  eventos
+  
+  usuarios:
+    path:  usuarios
+
+  chamados:
+    path:  chamados
+  
+  servicos_terceirizados:
+    path:  servicos_terceirizados
+
+  aulas:
+    path: aulas
+
+  refeitorio:
+    path: refeitorio
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.6

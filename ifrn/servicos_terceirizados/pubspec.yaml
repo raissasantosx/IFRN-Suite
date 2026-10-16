@@ -1,0 +1,14 @@
+name: servicos_terceirizados
+description: Modulo de gerenciamento de servicos terceirizados do IFRN Modular Suite
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  usuarios:
+    path: ../usuarios
+
+dev_dependencies:
+  test: ^1.24.0
