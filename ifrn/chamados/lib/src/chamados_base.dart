@@ -20,7 +20,7 @@ class UsuarioChamado extends Usuario {
 
 class Chamado {
   final int id;
-  String descricao;
+  String? descricao;
   final String campus;
   List<String> interessados;
   final String status;
@@ -55,10 +55,11 @@ class ChamadoController {
         for (final usuario in chamado.interessados) {
           textoInteressados += '$usuario\n';
         }
+        String textoDescricao = chamado.descricao!.isEmpty ? 'Sem descrição' : chamado.descricao!;
 
         final List<String> linhas = [
           '-------------------',
-          '${chamado.descricao} (${chamado.status})',
+          '$textoDescricao (${chamado.status})',
           'Campus: ${chamado.campus}',
           'Interessados: $textoInteressados',
           '-------------------'
@@ -80,7 +81,7 @@ class ChamadoController {
     }
 
     print('Insira a descrição do chamado');
-    String descricao = stdin.readLineSync() ?? 'Sem descrição';
+    String? descricao = stdin.readLineSync();
 
     print('Insira o nome dos interessados, separados por vírgula:');
     String? interessadosTexto = stdin.readLineSync();
