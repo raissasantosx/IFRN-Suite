@@ -56,13 +56,17 @@ class ChamadoController {
           textoInteressados += '$usuario\n';
         }
 
-        print('''
-        -------------------
-        ${chamado.descricao} (${chamado.status})
-        Campus: ${chamado.campus}
-        Interessados: $textoInteressados
-        -------------------
-        ''');
+        final List<String> linhas = [
+          '-------------------',
+          '${chamado.descricao} (${chamado.status})',
+          'Campus: ${chamado.campus}',
+          'Interessados: $textoInteressados',
+          '-------------------'
+        ];
+
+        for (final linha in linhas) {
+          print(linha);
+        }
       }
     }
   }
