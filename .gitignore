@@ -1,0 +1,21 @@
+# Files and directories created by pub
+package_config.json
+package_graph.json
+.dart_tool/
+.packages
+build/
+pubspec.lock
+
+doc/api/
+
+.env*
+
+*.dart.js
+*.info.json
+*.js
+*.js_
+*.js.deps
+*.js.map
+
+.flutter-plugins
+.flutter-plugins-dependencies
