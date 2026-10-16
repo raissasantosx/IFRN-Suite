@@ -34,14 +34,14 @@ class Eventos {
   /// Menu de opções do módulo exemplo.
   /// TODO: Adapte ao seu módulo, mas mantenha o nome da propriedade como `menu` para que o código do binário funcione corretamente.
   static List<Map<String, dynamic>> menu = [
+    { 'titulo': 'Eventos - Cadastrar evento', 'permissao': "dono_evento", 'metodo': cadastrar },
+    { 'titulo': 'Eventos - Editar evento', 'permissao': "dono_evento", 'metodo': editar },
+    { 'titulo': 'Eventos - Adicionar participante ao evento', 'permissao': "dono_evento", 'metodo': adicionarParticipante},
+    { 'titulo': 'Eventos - Adicionar membro da equipe ao evento', 'permissao': "dono_evento", 'metodo': adicionarMembroEquipe},
     { 'titulo': 'Eventos - Listar todas os eventos cadastrados', 'permissao': null, 'metodo': listar },
     { 'titulo': 'Eventos - Listar participantes de um evento', 'permissao': null, 'metodo': listarParticipantes },
     { 'titulo': 'Eventos - Listar membros da equipe de um evento', 'permissao': null, 'metodo': listarMembros },
-    { 'titulo': 'Eventos - Cadastrar evento', 'permissao': ['professor', 'aluno', 'tecnico'], 'metodo': cadastrar },
-    { 'titulo': 'Eventos - Editar evento', 'permissao': ['professor', 'aluno', 'tecnico'], 'metodo': editar },
-    { 'titulo': 'Eventos - Adicionar participante ao evento', 'permissao': ['professor', 'aluno', 'tecnico'], 'metodo': adicionarParticipante},
-    { 'titulo': 'Eventos - Adicionar membro da equipe ao evento', 'permissao': ['professor', 'aluno', 'tecnico'], 'metodo': adicionarMembroEquipe},
-    { 'titulo': 'Eventos - Excluir evento', 'permissao': ['professor', 'aluno', 'tecnico'], 'metodo': excluir },
+    { 'titulo': 'Eventos - Excluir evento', 'permissao': "dono_evento", 'metodo': excluir },
   ];
 
   static final List<Evento> eventos = [];

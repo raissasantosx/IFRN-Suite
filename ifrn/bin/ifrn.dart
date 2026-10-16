@@ -19,7 +19,7 @@ void main(List<String> arguments) {
   Map<String, dynamic> usuario1 = {'nome': 'Fulano', 'permissoes': []};
   Map<String, dynamic> usuario2 = {
     'nome': 'Beltrano',
-    'permissoes': ['admin'],
+    'permissoes': ['admin', "dono_evento"],
   };
 
   // Usuário logado
