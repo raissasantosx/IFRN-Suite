@@ -6,17 +6,17 @@ import 'disciplina_model.dart';
 class AulasManager {
   /// Não mudar o nome 'menu'
   static List<Map<String, dynamic>> menu = [
-    { 'titulo': 'Listar todas as aulas cadastradas', 'permissoes': null, 'metodo': Aula.listar },
-    { 'titulo': 'Cadastrar aula', 'permissoes': ['professor'], 'metodo': () => Aula.cadastrar(disciplinas: Disciplina.disciplinas) },
-    { 'titulo': 'Excluir aula', 'permissoes': ['professor'], 'metodo': Aula.excluir },
-    { 'titulo': 'Listar aula', 'permissoes': null, 'metodo': Aula.listar },
-    { 'titulo': 'Editar aula', 'permissoes': ['professor'], 'metodo': Aula.editar },
+    { 'titulo': 'Aulas - Listar todas as aulas cadastradas', 'permissoes': null, 'metodo': Aula.listar },
+    { 'titulo': 'Aulas - Cadastrar aula', 'permissoes': ['professor'], 'metodo': () => Aula.cadastrar(disciplinas: Disciplina.disciplinas) },
+    { 'titulo': 'Aulas - Excluir aula', 'permissoes': ['professor'], 'metodo': Aula.excluir },
+    { 'titulo': 'Aulas - Listar aula', 'permissoes': null, 'metodo': Aula.listar },
+    { 'titulo': 'Aulas - Editar aula', 'permissoes': ['professor'], 'metodo': Aula.editar },
 
-    { 'titulo': 'Listar todas as disciplinas cadastradas', 'permissoes': null, 'metodo': Disciplina.listar },
-    { 'titulo': 'Cadastrar disciplina', 'permissoes': ['professor'], 'metodo': Disciplina.cadastrar },
-    { 'titulo': 'Excluir disciplina', 'permissoes': ['professor'], 'metodo': Disciplina.excluir },
-    { 'titulo': 'Consultar disciplina por ID', 'permissoes': null, 'metodo': Disciplina.consultar },
-    { 'titulo': 'Editar disciplina', 'permissoes': ['professor'], 'metodo': Disciplina.editar },
+    { 'titulo': 'Aulas - Listar todas as disciplinas cadastradas', 'permissoes': null, 'metodo': Disciplina.listar },
+    { 'titulo': 'Aulas - Cadastrar disciplina', 'permissoes': ['professor'], 'metodo': Disciplina.cadastrar },
+    { 'titulo': 'Aulas - Excluir disciplina', 'permissoes': ['professor'], 'metodo': Disciplina.excluir },
+    { 'titulo': 'Aulas - Consultar disciplina por ID', 'permissoes': null, 'metodo': Disciplina.consultar },
+    { 'titulo': 'Aulas - Editar disciplina', 'permissoes': ['professor'], 'metodo': Disciplina.editar },
   ];
 
   static final List<String> informacoes = [];

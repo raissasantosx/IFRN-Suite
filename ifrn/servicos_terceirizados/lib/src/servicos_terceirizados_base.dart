@@ -71,32 +71,32 @@ class ServidorTerceirizado extends Usuario {
 class ServicosTerceirizadosController {
   static List<Map<String, dynamic>> menu = [
     {
-      'titulo': 'Listar terceirizados',
+      'titulo': 'Serviços Terceirizados - Listar terceirizados',
       'permissao': null,
       'metodo': listar,
     },
     {
-      'titulo': 'Cadastrar terceirizado',
+      'titulo': 'Serviços Terceirizados - Cadastrar terceirizado',
       'permissao': null,
       'metodo': cadastrar,
     },
     {
-      'titulo': 'Editar terceirizado',
+      'titulo': 'Serviços Terceirizados - Editar terceirizado',
       'permissao': null,
       'metodo': editar,
     },
     {
-      'titulo': 'Excluir terceirizado',
+      'titulo': 'Serviços Terceirizados - Excluir terceirizado',
       'permissao': null,
       'metodo': excluir,
     },
     {
-      'titulo': 'Listar empresas',
+      'titulo': 'Serviços Terceirizados - Listar empresas',
       'permissao': null,
       'metodo': listarEmpresas,
     },
     {
-      'titulo': 'Cadastrar empresa',
+      'titulo': 'Serviços Terceirizados - Cadastrar empresa',
       'permissao': null,
       'metodo': cadastrarEmpresa,
     },

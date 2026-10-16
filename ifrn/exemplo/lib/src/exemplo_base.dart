@@ -6,9 +6,9 @@ class Exemplo {
   /// Menu de opções do módulo exemplo.
   /// TODO: Adapte ao seu módulo, mas mantenha o nome da propriedade como `menu` para que o código do binário funcione corretamente.
   static List<Map<String, dynamic>> menu = [
-    { 'titulo': 'Listar todas as informações cadastradas', 'permissao': null, 'metodo': listar },
-    { 'titulo': 'Cadastrar informação', 'permissao': 'admin', 'metodo': cadastrar },
-    { 'titulo': 'Excluir informação', 'permissao': 'admin', 'metodo': excluir },
+    { 'titulo': 'Exemplo - Listar todas as informações cadastradas', 'permissao': null, 'metodo': listar },
+    { 'titulo': 'Exemplo - Cadastrar informação', 'permissao': 'admin', 'metodo': cadastrar },
+    { 'titulo': 'Exemplo - Excluir informação', 'permissao': 'admin', 'metodo': excluir },
   ];
 
   static final List<String> informacoes = [];

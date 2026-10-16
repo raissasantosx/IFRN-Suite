@@ -46,10 +46,10 @@ class Chamado {
 
 class ChamadoController {
   static List<Map<String, dynamic>> menu = [
-    { 'titulo': 'Listar chamados', 'permissao': null, 'metodo': listar },
-    { 'titulo': 'Abrir chamado', 'permissao': null, 'metodo': cadastrar },
-    { 'titulo': 'Fechar chamado', 'permissao': null, 'metodo': excluir },
-    { 'titulo': 'Editar chamado', 'permissao': null, 'metodo': editar },
+    { 'titulo': 'Chamados - Listar chamados', 'permissao': null, 'metodo': listar },
+    { 'titulo': 'Chamados - Abrir chamado', 'permissao': null, 'metodo': cadastrar },
+    { 'titulo': 'Chamados - Fechar chamado', 'permissao': null, 'metodo': excluir },
+    { 'titulo': 'Chamados - Editar chamado', 'permissao': null, 'metodo': editar },
   ];
 
   static void listar(UsuarioChamado usuario) {

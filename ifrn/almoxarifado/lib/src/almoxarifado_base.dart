@@ -5,22 +5,22 @@ import 'item.dart';
 class Almoxarifado {
   static List<Map<String, dynamic>> menu = [
     {
-      'titulo': 'Listar itens do almoxarifado',
+      'titulo': 'Almoxarifado - Listar itens do almoxarifado',
       'perfisPermitidos': null,
       'metodo': listar,
     },
     {
-      'titulo': 'Cadastrar item',
+      'titulo': 'Almoxarifado - Cadastrar item',
       'permissao': 'admin',
       'metodo': cadastrar,
     },
     {
-      'titulo': 'Atualizar item',
+      'titulo': 'Almoxarifado - Atualizar item',
       'permissao': 'admin',
       'metodo': atualizar,
     },
     {
-      'titulo': 'Excluir item',
+      'titulo': 'Almoxarifado - Excluir item',
       'permissao': 'admin',
       'metodo': excluir,
     },
