@@ -37,13 +37,11 @@ class Eventos {
     { 'titulo': 'Eventos - Listar todas os eventos cadastrados', 'permissao': null, 'metodo': listar },
     { 'titulo': 'Eventos - Listar participantes de um evento', 'permissao': null, 'metodo': listarParticipantes },
     { 'titulo': 'Eventos - Listar membros da equipe de um evento', 'permissao': null, 'metodo': listarMembros },
-    { 'titulo': 'Eventos - Cadastrar evento', 'permissao': 'admin', 'metodo': cadastrar },
-    { 'titulo': 'Eventos - Editar evento', 'permissao': 'admin', 'metodo': editar },
-    { 'titulo': 'Eventos - Adicionar participante ao evento', 'permissao': 'admin', 'metodo': adicionarParticipante},
-    { 'titulo': 'Eventos - Adicionar membro da equipe ao evento', 'permissao': 'admin', 'metodo': adicionarMembroEquipe},
-    { 'titulo': 'Eventos - Excluir evento', 'permissao': 'admin', 'metodo': excluir },
-    
-    
+    { 'titulo': 'Eventos - Cadastrar evento', 'permissao': ['professor', 'aluno', 'tecnico'], 'metodo': cadastrar },
+    { 'titulo': 'Eventos - Editar evento', 'permissao': ['professor', 'aluno', 'tecnico'], 'metodo': editar },
+    { 'titulo': 'Eventos - Adicionar participante ao evento', 'permissao': ['professor', 'aluno', 'tecnico'], 'metodo': adicionarParticipante},
+    { 'titulo': 'Eventos - Adicionar membro da equipe ao evento', 'permissao': ['professor', 'aluno', 'tecnico'], 'metodo': adicionarMembroEquipe},
+    { 'titulo': 'Eventos - Excluir evento', 'permissao': ['professor', 'aluno', 'tecnico'], 'metodo': excluir },
   ];
 
   static final List<Evento> eventos = [];
