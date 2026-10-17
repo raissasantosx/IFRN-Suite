@@ -1,11 +1,17 @@
 name: almoxarifado
-description: Modulo de gerenciamento de almoxarifado do IFRN.
+description: A starting point for Dart libraries or applications.
 version: 1.0.0
+# repository: https://github.com/my_org/my_repo
 
 environment:
-  sdk: ^3.12.2
+  sdk: ^3.13.4
 
-dependencies: {}
+# Add regular dependencies here.
+
+dependencies:
+  usuarios:
+   path: ../usuarios
+  # path: ^1.9.0
 
 dev_dependencies:
   lints: ^6.0.0

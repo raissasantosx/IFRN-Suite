@@ -1,146 +1,146 @@
 import 'dart:io';
+import 'package:usuarios/usuarios.dart';
 
-import 'item.dart';
+class Item {
+  String nome;
+  String categoria;
+  int quantidade;
+  Item(this.nome, this.categoria, this.quantidade);
+}
 
+class Retirada {
+  String nomeItem;
+  int quantidade;
+  Usuario usuario;
+  DateTime data;
+  Retirada(this.nomeItem, this.quantidade, this.usuario, this.data);
+}
+
+/// Módulo Almoxarifado
 class Almoxarifado {
+  /// Menu de opções do módulo
   static List<Map<String, dynamic>> menu = [
-    {
-      'titulo': 'Almoxarifado - Listar itens do almoxarifado',
-      'perfisPermitidos': null,
-      'metodo': listar,
-    },
-    {
-      'titulo': 'Almoxarifado - Cadastrar item',
-      'permissao': 'admin',
-      'metodo': cadastrar,
-    },
-    {
-      'titulo': 'Almoxarifado - Atualizar item',
-      'permissao': 'admin',
-      'metodo': atualizar,
-    },
-    {
-      'titulo': 'Almoxarifado - Excluir item',
-      'permissao': 'admin',
-      'metodo': excluir,
-    },
+    {'titulo': 'Almoxarifado - Listar todos os itens', 'permissao': null, 'metodo': listar,},
+    {'titulo': 'Almoxarifado - Cadastrar item', 'permissao': 'admin','metodo': cadastrar,},
+    {'titulo': 'Almoxarifado - Retirar item', 'permissao': null,'metodo': retirar,},
+    {'titulo': 'Almoxarifado - Excluir item', 'permissao': 'admin','metodo': excluir,},
   ];
 
-  static final List<Item> itens = [];
-  static int proximoId = 1;
+  static final List<String> nomes = [];
+  static final List<String> categorias = [];
+  static final List<int> quantidades = [];
 
-  // READ - Listar
+  // Lista para guardar o histórico
+  static final List<Retirada> historicoRetiradas = [];
+
+  /// Lista os itens 
   static void listar() {
-    if (itens.isEmpty) {
-      print('Nenhum item cadastrado.');
-      return;
-    }
-
-    print('Itens cadastrados:');
-    for (final item in itens) {
-      print(
-        'ID: ${item.id} | Nome: ${item.nome} | '
-        'Categoria: ${item.categoria} | '
-        'Estoque: ${item.quantidadeDisponivel}',
-      );
-    }
-  }
-
-  // CREATE - Cadastrar
-  static void cadastrar() {
-    stdout.write('Digite o nome do item: ');
-    final nome = stdin.readLineSync()?.trim() ?? '';
-
-    stdout.write('Digite a categoria do item: ');
-    final categoria = stdin.readLineSync()?.trim() ?? '';
-
-    stdout.write('Digite a quantidade inicial em estoque: ');
-    final quantidade = int.tryParse(stdin.readLineSync()?.trim() ?? '');
-
-    if (nome.isEmpty || categoria.isEmpty) {
-      print('Nome e categoria são obrigatórios.');
-      return;
-    }
-    if (quantidade == null || quantidade < 0) {
-      print('A quantidade deve ser um número inteiro maior ou igual a zero.');
-      return;
-    }
-
-    itens.add(Item(
-      id: proximoId,
-      nome: nome,
-      categoria: categoria,
-      quantidadeDisponivel: quantidade,
-    ));
-    proximoId++;
-    print('Item cadastrado com sucesso!');
-  }
-
-  // READ - Buscar pelo nome
-  static Item? buscarPorNome(String nomeBusca) {
-    for (final item in itens) {
-      if (item.nome.toLowerCase() == nomeBusca.toLowerCase()) {
-        return item;
+    if (nomes.isEmpty) {
+      print('Nenhum item cadastrado');
+    } else {
+      print('--- Itens Cadastrados ---');
+      for (int i = 0; i < nomes.length; i++) {
+        print('Nome:${nomes[i]} - Categoria: ${categorias[i]} - Qtd:${quantidades[i]}');
       }
     }
-    return null;
   }
 
-  // UPDATE - Atualizar
-  static void atualizar() {
-    stdout.write('Digite o nome do item que deseja atualizar: ');
-    final nomeBusca = stdin.readLineSync()?.trim() ?? '';
+  // Cadastra um item 
+  static void cadastrar() {
+    print('Digite o nome do item:');
+    String? nome = stdin.readLineSync();
 
-    if (nomeBusca.isEmpty) {
-      print('Nome inválido.');
-      return;
+    print('Digite a categoria do item:');
+    String? categoria = stdin.readLineSync();
+
+    print('Digite a quantidade inicial:');
+    String? qtdInput = stdin.readLineSync();
+    int? quantidade = int.tryParse(qtdInput ?? '');
+
+    if (nome != null && nome.isNotEmpty &&
+        categoria != null && categoria.isNotEmpty &&
+        quantidade != null && quantidade >= 0) {
+      
+      var novoItem = Item(nome, categoria, quantidade);
+
+      nomes.add(novoItem.nome);
+      categorias.add(novoItem.categoria);
+      quantidades.add(novoItem.quantidade);
+      print('Item cadastrado');
+    } else {
+      print('Dados inválidos. Nenhum item foi cadastrado.');
     }
-
-    final item = buscarPorNome(nomeBusca);
-    if (item == null) {
-      print('Item não encontrado!');
-      return;
-    }
-
-    stdout.write('Digite o novo nome do item: ');
-    final nome = stdin.readLineSync()?.trim() ?? '';
-    stdout.write('Digite a nova categoria do item: ');
-    final categoria = stdin.readLineSync()?.trim() ?? '';
-    stdout.write('Digite a nova quantidade em estoque: ');
-    final quantidade = int.tryParse(stdin.readLineSync()?.trim() ?? '');
-
-    if (nome.isEmpty || categoria.isEmpty) {
-      print('Nome e categoria são obrigatórios.');
-      return;
-    }
-    if (quantidade == null || quantidade < 0) {
-      print('A quantidade deve ser um número inteiro maior ou igual a zero.');
-      return;
-    }
-
-    item.nome = nome;
-    item.categoria = categoria;
-    item.quantidadeDisponivel = quantidade;
-    print('Item atualizado com sucesso!');
   }
 
-  // DELETE - Excluir
-  static void excluir() {
-    stdout.write('Digite o nome do item que deseja excluir: ');
-    final nomeBusca = stdin.readLineSync()?.trim() ?? '';
+  // retira um item
+  static void retirar() {
+    listar();
+    if (nomes.isEmpty) return;
 
-    if (nomeBusca.isEmpty) {
-      print('Nome inválido.');
+    if (Usuario.usuarios.isEmpty) {
+      print('Nenhum usuário cadastrado');
       return;
     }
 
-    final item = buscarPorNome(nomeBusca);
-    if (item == null) {
+    print('Digite o nome do item que deseja retirar:');
+    String? nomeInput = stdin.readLineSync();
+
+    if (nomeInput != null && nomes.contains(nomeInput)) {
+      int index = nomes.indexOf(nomeInput);
+
+      print('Digite a quantidade que deseja retirar:');
+      String? inputQtd = stdin.readLineSync();
+      int? qtdRetirar = int.tryParse(inputQtd ?? '');
+
+      if (qtdRetirar != null && qtdRetirar > 0) {
+        if (quantidades[index] >= qtdRetirar) {
+
+          print('\nUsuários Cadastrados:');
+          for (final user in Usuario.usuarios) {
+            print('ID: ${user.id} | Nome: ${user.nome}');
+          }
+
+          print('Digite o ID do usuário que está realizando a retirada:');
+          String? inputUser = stdin.readLineSync();
+          int? idUsuario = int.tryParse(inputUser ?? '');
+
+          if (idUsuario != null && Usuario.usuarios.any((u) => u.id == idUsuario)) {
+            Usuario usuarioEncontrado = Usuario.usuarios.firstWhere((u) => u.id == idUsuario);
+
+            quantidades[index] -= qtdRetirar;
+
+            var novaRetirada = Retirada(nomeInput, qtdRetirar, usuarioEncontrado, DateTime.now());
+            historicoRetiradas.add(novaRetirada);
+
+            print('Retirada foi realizada pelo usuário"${usuarioEncontrado.nome}" e restam ${quantidades[index]} unidades do item "${nomes[index]}".');
+          } else {
+            print('Usuário não encontrado');
+          }
+
+        } else {
+          print('Quantidade insuficiente. Disponível: ${quantidades[index]}');
+        }
+      } else {
+        print('Quantidade inválida para retirada');
+      }
+    } else {
       print('Item não encontrado.');
-      return;
     }
+  }
 
-    itens.remove(item);
-    print('Item excluído com sucesso!');
+  /// Exclui um item
+  static void excluir() {
+    print('Digite o nome do item que deseja excluir:');
+    String? input = stdin.readLineSync();
+
+    if (input != null && nomes.contains(input)) {
+      int index = nomes.indexOf(input);
+      nomes.removeAt(index);
+      categorias.removeAt(index);
+      quantidades.removeAt(index);
+      print('Item excluído com sucesso');
+    } else {
+      print('Item não encontrado');
+    }
   }
 }
