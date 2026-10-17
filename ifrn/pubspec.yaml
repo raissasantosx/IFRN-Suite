@@ -34,6 +34,9 @@ dependencies:
   almoxarifado:
     path: almoxarifado
 
+  biblioteca:
+    path: biblioteca
+
 dev_dependencies:
   lints: ^6.0.0
   test: ^1.25.6

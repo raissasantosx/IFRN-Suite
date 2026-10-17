@@ -10,6 +10,7 @@
         "almoxarifado",
         "args",
         "aulas",
+        "biblioteca",
         "chamados",
         "eventos",
         "exemplo",
@@ -59,9 +60,16 @@
       "dependencies": []
     },
     {
-      "name": "almoxarifado",
+      "name": "biblioteca",
       "version": "1.0.0",
       "dependencies": []
+    },
+    {
+      "name": "almoxarifado",
+      "version": "1.0.0",
+      "dependencies": [
+        "usuarios"
+      ]
     },
     {
       "name": "refeitorio",
